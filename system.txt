@@ -1,0 +1,1380 @@
+System
+
+
+
+
+//exp 1
+
+
+
+
+#include "mbed.h"
+
+
+
+
+DigitalOut myled1(PC_4);
+
+DigitalOut myled2(PB_13);
+
+DigitalOut myled3(PB_14);
+
+DigitalOut myled4(PB_15);
+
+
+
+
+int main()
+
+{
+
+while(1)
+
+{
+
+myled1 = 1;
+
+myled2 = 0;
+
+myled3 = 0;
+
+myled4 = 0;
+
+wait(0.2); 1
+
+myled1 = 0;
+
+myled2 = 1;
+
+myled3 = 0;
+
+myled4 = 0;
+
+wait(0.2);
+
+myled1 = 0;
+
+myled2 = 0;
+
+myled3 = 1;
+
+myled4 = 0;
+
+wait(0.2);
+
+myled1 = 0;
+
+myled2 = 0;
+
+myled3 = 0;
+
+myled4 = 1;
+
+}
+
+}
+
+
+
+
+//exp 2
+
+
+
+
+#include "mbed.h"
+
+
+
+
+BusOut myled(PC_8,PC_6,PB_13,PC_4);
+
+BusOut switchIn1(PB_1);
+
+BusOut SwitchIn2(PB_2);
+
+int i;
+
+
+
+
+int main()
+
+{
+
+  while(1)
+
+  {
+
+      if(switchIn1){
+
+          myled=0x03;
+
+      }
+
+      else if(SwitchIn2){
+
+          myled=0x0c;
+
+      }
+
+
+
+
+  }
+
+}
+
+
+
+
+
+
+
+#include "mbed.h"
+
+
+
+
+BusOut myled (PC_4,PB_13);
+
+BusOut myled (PB_14,PB_15);
+
+
+
+
+int main()
+
+{
+
+    while(1)
+
+    {
+
+        myled=2;
+
+        myled2=0;
+
+        wait(0.2)
+
+        myled=0;
+
+        myled2=2;
+
+        wait(0.2)
+
+    }
+
+}
+
+
+
+
+#include "mbed.h"
+
+
+
+
+BusOut myled(PC_8,PC_6,PB_14,PB_15)
+
+int i;
+
+
+
+
+int main()
+
+{
+
+    while(1)
+
+    {
+
+        myled=0x00;
+
+        for(i=0;i<16;i++)
+
+        {
+
+            myled=myled+1;
+
+            wait(1.5);
+
+        }
+
+    }
+
+}
+
+
+
+
+#include "mbed.h"
+
+
+
+
+BusOut leds(PC_4,PB_13,PB_14,PB_15,PB_1,PB_2,PB_11);
+
+int main()
+
+{
+
+    while(1)
+
+    {
+
+        wait(0.5);
+
+        leds=0x3f;
+
+        wait(0.5);
+
+        leds=0x06;
+
+        wait(0.5);
+
+        leds=0x5b;
+
+        wait(0.5);
+
+        leds=0x4f;
+
+        wait(0.5);
+
+        leds=0x66;
+
+        wait(0.5);
+
+        leds=0x6d;
+
+        wait(0.5);
+
+        leds=0x7d;
+
+        wait(0.5);
+
+        leds=0x07;
+
+        wait(0.5);
+
+        leds=0x7f;
+
+        wait(0.5);
+
+        leds=0x67;
+
+    }
+
+}
+
+
+
+
+//exp 3
+
+
+
+
+//task 1
+
+#include "mbed.h"
+
+
+
+
+Serial pc(USBTX,USBRX);
+
+
+
+
+int main() {
+
+  while(1)   {
+
+pc.printf("VIT SENSE\n");
+
+    wait(1);
+
+  }
+
+}
+
+
+
+
+
+
+
+//exp 4
+
+
+
+
+#include "mbed .h"
+
+DigitalIn s1(PC_4);
+
+DigitalIn s2(PB_13);
+
+DigitalIn $3(PB_14);
+
+DigitalIn $4(PB_15);
+
+
+
+
+DigitalIn $5(PB_1);
+
+DigitalIn $6(PB_2);
+
+DigitalIn s7(PB_11) ;
+
+//rgb led
+
+DigitalOut red(PC_8);
+
+DigitalOut green(PC_6);
+
+
+
+
+DigitalOut blue(PC_5) ;
+
+/buzzer
+
+DigitalOut buzzer(PB_12);
+
+int main() {
+
+while(1) {
+
+
+
+
+if(s1==1) {
+
+red=1;
+
+buzzer=1;
+
+wait(0.5) ;
+
+
+
+
+buzzer=0;
+
+else if (s2==1) {
+
+green=1;
+
+buzzer=1;
+
+wait(0.5);
+
+buzzer=0;
+
+}
+
+else if (s3==1) {
+
+blue=1;
+
+buzzer=1;
+
+wait (0.5) ;
+
+buzzer=0;
+
+
+
+
+else if(s4==1) {
+
+red=1;
+
+buzzer=1;
+
+wait (0.5) ;
+
+buzzer=0;
+
+
+
+
+else if (s5==1) {
+
+green=1;
+
+buzzer=1;
+
+wait(0.5) ;
+
+buzzer=0;
+
+
+
+
+else if (s6==1) {
+
+blue=1;
+
+buzzer=1;
+
+wait(0.5) ;
+
+buzzer=0;
+
+}
+
+
+
+
+else if (s7==1) {
+
+red=1;
+
+buzzer=1;
+
+wait(0.5) ;
+
+buzzer=0;
+
+}
+
+
+
+
+//task 2
+
+
+
+
+#include "mbed .h"
+
+Bus InOut pins (PB_13, PB_14, PB_15) ;
+
+int main( )
+
+pins . input( ); / /Configuring Bus as Input
+
+
+
+
+int a = 100 & pins; //Gets a; masks other bits
+
+a = a> >2; //bring to LSB position
+
+int b = 010 & pins; / /Gets b; masks other bits
+
+b = b>1; //bring to LSB position
+
+int cin = 001 & pins; //Gets cin; masks other bits
+
+int sum = a ^ b ^ cin; //XORing to find SUM
+
+
+
+
+int cout = (a&b) | (a&cin) | (b&cin) ; //To find carry
+
+pins . output(); //Configure Bus as Output
+
+pins = 000 | sum; / /Adding sum to pins[0] position
+
+if (cout ==1)
+
+pins = pins | 010; //Adding cout to pins[1] position
+
+
+
+
+//exp 5
+
+
+
+
+
+
+
+
+
+
+//Working with mbed board PWN generation
+
+#include "mbed.h"
+
+PwmOut led(PC_8);
+
+
+
+
+int main() {
+
+  led.period(.1f);
+
+    led.write(.5f);
+
+    //led=0.5f
+
+    //led.pulsewidth_ms(50);
+
+    while(1);
+
+  
+
+}
+
+
+
+
+#include "mbed.h"
+
+
+
+
+PwmOut led(PC_8);
+
+Serial pc(USBTX,USBRX);
+
+
+
+
+int main() {
+
+  led.period(.1f); {
+
+    led.write(.7f);
+
+    //led=0.5f
+
+    //led.pulsewidth_ms(50);
+
+    while(1)
+
+  }
+
+}
+
+
+
+
+
+
+
+#include "mbed.h"
+
+
+
+
+PwmOut PWM1(PC_8);
+
+AnalogIn Ain(PC_3);
+
+
+
+
+int main()
+
+{
+
+    while(1)
+
+    {
+
+        PWM1.period(0.5);
+
+        PWM1=Ain;
+
+        wait(0.1);
+
+    }
+
+}
+
+
+
+
+#include "mbed.h"
+
+
+
+
+PwmOut led(PC_8);
+
+Serial pc(USBTX,USBRX);
+
+float brightness=0.0;
+
+
+
+
+int main()
+
+{
+
+    while(1)
+
+    {
+
+        char c=pc.getc();
+
+        wait(0.001);
+
+        if(c=='i' && brightness<0.1)
+
+        {
+
+            brightness+=0.001;
+
+            led=brightness;
+
+        }
+
+        if(c=='d' && brightness>0.0)
+
+        {
+
+            brightness-=0.001;
+
+            led=brightness;
+
+        }
+
+    }
+
+}
+
+
+
+
+//exp 6
+
+
+
+
+// //Solar tracker system
+
+
+
+
+// #include "mbed.h"
+
+// PwmOut PWM1(PC_8);
+
+// float i;
+
+// int main(){
+
+//     while(1){
+
+//         PWM1.period_ms(20);
+
+//         for(i=0;i<3;i=i+0.1)
+
+//         {
+
+//             PWM1=i/20;
+
+//             wait_ms(500);
+
+//         }
+
+//     }
+
+// }
+
+
+
+
+// #include "mbed.h"
+
+// PwmOut PWM1(PC_8);
+
+// AnalogIn Ain(PC_3);
+
+
+
+
+// int main(){
+
+//     while(1){
+
+//         PWM1.period(0.010);
+
+//         PWM1=1-Ain;
+
+//         wait(0.1);
+
+  
+
+//     }
+
+// }
+
+
+
+
+// //Solar tracking system
+
+// #include "mbed.h"
+
+
+
+
+// PwmOut PW1(PC_8);
+
+// float i;
+
+// AnalogIn Ain1(PC_3);
+
+// AnalogIn Ain2(PC_2);
+
+
+
+
+// int main() {
+
+//     while(1) {
+
+//         if(Ain1<Ain2) {
+
+//             for(i=0;i<3;i+=0.1) {
+
+//                 PW1=i/20;
+
+//                 wait_ms(500);
+
+//             }
+
+//         }
+
+//         if(Ain1>Ain2) {
+
+//             for(i=2;i>=0;i-=0.1) {
+
+//                 PW1=i/20;
+
+//                 wait_ms(500);
+
+//             }
+
+//         }
+
+    
+
+//         wait(0.1);
+
+//     }
+
+// }
+
+
+
+
+//Lab 8 - Working with SPI
+
+//Master program
+
+// #include "mbed.h"
+
+// SPI spi(PB_15,PB_14,PB_13);
+
+// DigitalOut cs(PB_12);
+
+// Serial pc(USBTX,USBRX);
+
+// int main(){
+
+//     char send_val;
+
+//     pc.printf("Press any key to start...\n");
+
+//     while(1){
+
+//         send_val= pc.getc();
+
+//         pc.printf("%c",send_val);
+
+        
+
+//     }
+
+// }
+
+
+
+
+
+
+
+//exp 7
+
+
+
+
+#include "mbed .h"
+
+PwmOut PWM1(PC_8) ;
+
+AnalogIn Ain(PC_3);
+
+AnalogIn Ain1(PB_14);
+
+
+
+
+float i;
+
+float 11;
+
+float 12;
+
+float ratio;
+
+int main()
+
+
+
+
+while(1)
+
+PWM1 . period_ms (20);
+
+PWM1 . pulsewidth_us (1500);
+
+11=Ain;
+
+12=Ain1
+
+if(11!=12)
+
+
+
+
+if(11>12)
+
+PWM1 . pulsewidth_us (1750) ;
+
+if(11<12)
+
+PWM1 . pulsewidth_us (1250);
+
+
+
+
+if (11<12)
+
+PWM1. pulsewidth_us (1500) ;
+
+wait (1) ;
+
+
+
+
+
+
+
+// exp 8
+
+
+
+
+// Write a program to implement a SPI communication between two Nucleo boards.
+
+// Configure one of the Nucleo as master and other as slave. Establish a SPI communication between master and slave display each key press on the masterâ€™s Teraterm to the slave Teraterm terminal.
+
+//Master code
+
+#include "mbed.h"
+
+SPI spi(PB_15, PB_14, PB_13);
+
+DigitalOut cs(PB_12);
+
+Serial pc(USBTX, USBRX) ;
+
+
+
+
+int main() {
+
+char send_val;
+
+pc.printf("Press any ket to start... \n");
+
+while(1) {
+
+send_val = pc.getc();
+
+
+
+
+pc.printf("%c", send_val);
+
+cs=0;
+
+spi.write(send_val);
+
+cs=1;
+
+wait (0.01);
+
+
+
+
+}
+
+}
+
+
+
+
+//  //*********SLAVE*****
+
+// #include "mbed.h"
+
+// SPISlave spi(PB_15, PB_14, PB_13, PB_12);
+
+// Serial pc(USBTX, USBRX) ;
+
+
+
+
+// char recd_val;
+
+// int main( ) {
+
+// pc.printf("Received word is. ..\n");
+
+// 8
+
+// while(1) {
+
+
+
+
+// if(spi.receive( ) ) {
+
+// recd_val=spi. read( );
+
+// 10
+
+// 11
+
+// pc.printf("%c", recd_val);
+
+
+
+
+// // Task 2:
+
+// // Write a program to implement a SPI communication between two Nucleo boards. Configure one of the Nucleo as master and other as slave. Both Nucleo are attached with a LED & a push button separately. Master LED can be controlled by using slave Nucleoâ€™s push button and slave Nucleoâ€™s LED can be controlled by master Nucleoâ€™s push button using SPI communication protocol.
+
+
+
+
+
+
+
+// //Master Code:
+
+//  #include "mbed.h"
+
+//  SPI ser_port(PB_15, PB_14, PB_13) ;
+
+//  DigitalOut led(PC_8);
+
+//  DigitalIn switch_ip(PC_4);
+
+
+
+
+//  DigitalOut Cs(PB_12);
+
+//  char switch_word;
+
+//  char recd_val;
+
+//  int main()
+
+//  {
+
+//  while(1)
+
+//  {
+
+//  switch_word=0xa0;
+
+//  if(switch_ip==1)
+
+
+
+
+//  switch_word=switch_word |0x01;
+
+//  Cs=0;
+
+//  recd_val=ser_port.write(switch_word);
+
+//  Cs=1;
+
+//  wait (0.01);
+
+
+
+
+//  led=0;
+
+//  recd_val=recd_val&0x01;
+
+//  if(recd_val==1)
+
+//  led=1;
+
+//  }
+
+//  }
+
+
+
+
+// //slave code:
+
+
+
+
+// #include "mbed.h"
+
+// SPISlave ser_port(PB_15, PB_14, PB_13, PB_12);
+
+// DigitalOut led(PC_8);
+
+// DigitalIn switch_ip(PC_4);
+
+// char switch_word;
+
+
+
+
+// char recd_val;
+
+// int main( )
+
+// {
+
+// while (1)
+
+// {
+
+// switch_word=0xa0;
+
+// if(switch_ip==1)
+
+// switch_word=switch_word |0x01;
+
+// if(ser_port.receive())
+
+// {
+
+// recd_val=ser_port. read();
+
+// ser_port.reply(switch_word);
+
+// }
+
+// led=0;
+
+// recd_val=recd_val&0x01;
+
+// if(recd_val==1)
+
+// led=1;
+
+// }
+
+// }
+
+
+
+
+
+
+
+//exp 9
+
+
+
+
+// #include "mbed.h"
+
+// Serial pc(USBTX,USBRX);
+
+// Serial bt(PC_10,PC_11);
+
+
+
+
+// int main(void) {
+
+//     char ch;
+
+//     bt.baud(9600);
+
+//     pc.baud(9600);
+
+//     pc.printf("Hello World!\n\r");
+
+//     while(1) {
+
+//       if(bt.readable())
+
+//       {
+
+//           ch=bt.getc();
+
+//           pc.printf("%c",ch);
+
+//       }
+
+//       if(pc.readable())
+
+//       {
+
+//           ch=pc.getc();
+
+//           bt.printf("%c",ch);
+
+//       }
+
+//   }
+
+// }
+
+
+
+
+//  #include "mbed.h"
+
+//  Serial pc(USBTX,USBRX);
+
+//  Serial bt(PC_10,PC_11);
+
+//  DigitalOut led(PC_8);
+
+//  DigitalOut motor(PC_9);
+
+
+
+
+//  int main(void) {
+
+//     char ch;
+
+//      bt.baud(9600);
+
+//      bt.printf("Enter your option\n\r");
+
+//      while(1) {
+
+//        if(bt.readable())
+
+//        {
+
+//            ch=bt.getc();
+
+//            if(ch=='1')
+
+//            {
+
+//                led=0;
+
+//                bt.printf("LED OFF! \r\n");
+
+//            }
+
+//            else if(ch=='2')
+
+//            {
+
+//                led=1;
+
+//                bt.printf("LED ON! \r\n");
+
+//            }
+
+//             else if(ch=='3')
+
+//            {
+
+//                motor=0;
+
+//                bt.printf("MOTOR OFF! \r\n");
+
+//            }
+
+//               else if(ch=='4')
+
+//            {
+
+//                motor=1;
+
+//                bt.printf("MOTOR ON! \r\n");
+
+//            }
+
+//        }
+
+//    }
+
+//  }
+
+
+
+
+#include "mbed.h"
+
+Serial pc(USBTX,USBRX);
+
+Serial bt(PC_10,PC_11);
+
+AnalogIn ain(PA_5);
+
+int main(void)
+
+{
+
+    char ch;
+
+    bt.baud(9600);
+
+    bt.printf("Display the temperature\n\r");
+
+    int temp=ain*3.3;
+
+    while(1)
+
+    {
+
+        bt.printf("%c",temp);
+
+    }
+
+}
+
+
+
+
+//exp 10
+
+
+
+
+#include "mbed.h"
+
+
+
+
+Serial pc(USBTX,USBRX);
+
+AnalogIn x(PB_13);
+
+AnalogIn y(PB_14);
+
+AnalogIn z(PB_15);
+
+
+
+
+int main() {
+
+    float xn,yn,zn, mean;
+
+    float dist=0.0;
+
+  while(1) {
+
+      pc.printf("x axis: %.2f\r\n", x.read()*3.3);
+
+      pc.printf("y axis: %.2f\r\n", y.read()*3.3);
+
+      pc.printf("z axis: %.2f\r\n", z.read()*3.3);
+
+      pc.printf("\r\n");
+
+      if(x.read()*3.3 > 1.7){
+
+          pc.printf("Forward direction\r\n");
+
+          wait(0.5);
+
+      }
+
+      else if(x.read()*3.3 < 1.55){
+
+          pc.printf("Backward direction\r\n");
+
+          wait(0.5);
+
+      }
+
+      if(y.read()*3.3 > 1.7){
+
+          pc.printf("Left\r\n");
+
+          wait(0.5);
+
+      }
+
+      else if(y.read()*3.3 < 1.5){
+
+          pc.printf("Right\r\n");
+
+          wait(0.5);
+
+      }
+
+      wait(2);
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
